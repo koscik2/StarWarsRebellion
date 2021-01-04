@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:StarWarsRebellion.ViewModels"
+             x:Class="App1.Views.ArmadaPage" Title="Armada">
+    <ContentPage.BindingContext>
+        <vm:ArmadaViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Nowa flota" Command="{Binding NewFleetCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Gracz:" Grid.Column="0" VerticalOptions="Center" FontSize="18"/>
+                <Label x:Name="playerLabel" Grid.Column="1" Text="{Binding PlayerName}" VerticalOptions="Center" FontSize="18"/>
+                <Entry x:Name="playerEntry" Grid.Column="1" Text="{Binding PlayerName, Mode=TwoWay}" IsVisible="false"/>
+                <Button x:Name="changeNameButton" Text="Zmień nazwę" Grid.Column="2" Clicked="changeNameButton_Clicked"/>
+            </Grid>
+            <ListView ItemsSource="{Binding Fleets}" SelectedItem="{Binding ActiveFleet}" ItemTapped="ListView_ItemTapped"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
