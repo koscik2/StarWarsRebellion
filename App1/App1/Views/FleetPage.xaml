@@ -6,9 +6,19 @@
         <vm:FleetViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <Grid>
-            <ListView VerticalOptions="Fill" HorizontalOptions="Fill" Margin="0,0,0,40"> </ListView>
-            <Button Text="{Binding FleetName}" VerticalOptions="End" HeightRequest="40"/>
-        </Grid>
+        <StackLayout>
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Flota:" Grid.Column="0" VerticalOptions="Center" FontSize="18"/>
+                <Label x:Name="fleetLabel" Grid.Column="1" Text="{Binding FleetName}" VerticalOptions="Center" FontSize="18"/>
+                <Entry x:Name="fleetEntry" Grid.Column="1" Text="{Binding FleetName, Mode=TwoWay}" IsVisible="false"/>
+                <Button x:Name="changeNameButton" Text="Zmień nazwę" Grid.Column="2" Clicked="changeNameButton_Clicked"/>
+            </Grid>
+            <ListView VerticalOptions="Fill" HorizontalOptions="Fill" Margin="0,0,0,40"></ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

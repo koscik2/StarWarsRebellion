@@ -16,5 +16,10 @@ namespace App1.Views
         {
             InitializeComponent();
         }
+
+        private void changeNameButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
